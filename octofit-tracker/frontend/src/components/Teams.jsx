@@ -1,3 +1,4 @@
+import { fetch as fetchApi } from '../api.js'
 import ApiResourceTable from './ApiResourceTable.jsx'
 
 function memberCount(members) {
@@ -16,6 +17,7 @@ function Teams() {
       columns={columns}
       description="Find your crew and keep each other moving."
       endpoint="/api/teams/"
+      fetcher={fetchApi}
       title="Teams"
     />
   )

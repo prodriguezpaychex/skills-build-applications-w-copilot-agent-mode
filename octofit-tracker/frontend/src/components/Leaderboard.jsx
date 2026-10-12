@@ -1,3 +1,4 @@
+import { fetch as fetchApi } from '../api.js'
 import ApiResourceTable from './ApiResourceTable.jsx'
 
 function displayName(value) {
@@ -21,6 +22,7 @@ function Leaderboard() {
       columns={columns}
       description="Celebrate the consistency and achievements of the community."
       endpoint="/api/leaderboard/"
+      fetcher={fetchApi}
       title="Leaderboard"
     />
   )

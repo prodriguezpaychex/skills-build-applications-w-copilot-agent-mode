@@ -1,3 +1,4 @@
+import { fetch as fetchApi } from '../api.js'
 import ApiResourceTable from './ApiResourceTable.jsx'
 
 const columns = [
@@ -12,6 +13,7 @@ function Users() {
       columns={columns}
       description="Meet the athletes who make up the Octofit community."
       endpoint="/api/users/"
+      fetcher={fetchApi}
       title="Users"
     />
   )

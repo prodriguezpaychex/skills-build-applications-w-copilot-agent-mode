@@ -8,6 +8,10 @@ export function getApiUrl(endpoint) {
   return new URL(endpoint, API_BASE_URL).toString()
 }
 
+export function fetch(endpoint, options) {
+  return globalThis.fetch(getApiUrl(endpoint), options)
+}
+
 export function getRecords(payload) {
   if (Array.isArray(payload)) {
     return payload

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getApiUrl, getRecords } from '../api.js'
 
-function ApiResourceTable({ columns, description, endpoint, title }) {
+function ApiResourceTable({ columns, description, endpoint, fetcher, title }) {
   const [records, setRecords] = useState([])
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
@@ -15,7 +15,7 @@ function ApiResourceTable({ columns, description, endpoint, title }) {
       setError('')
 
       try {
-        const response = await fetch(getApiUrl(endpoint), {
+        const response = await fetcher(endpoint, {
           signal: controller.signal,
         })
         if (!response.ok) {
@@ -36,7 +36,7 @@ function ApiResourceTable({ columns, description, endpoint, title }) {
 
     loadRecords()
     return () => controller.abort()
-  }, [endpoint, refreshCount])
+  }, [endpoint, fetcher, refreshCount])
 
   return (
     <section className="resource-section">

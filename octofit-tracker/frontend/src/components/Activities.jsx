@@ -1,3 +1,4 @@
+import { fetch as fetchApi } from '../api.js'
 import ApiResourceTable from './ApiResourceTable.jsx'
 
 function displayDate(value) {
@@ -28,6 +29,7 @@ function Activities() {
       columns={columns}
       description="A look at the effort your community has put in."
       endpoint="/api/activities/"
+      fetcher={fetchApi}
       title="Activities"
     />
   )

@@ -1,3 +1,4 @@
+import { fetch as fetchApi } from '../api.js'
 import ApiResourceTable from './ApiResourceTable.jsx'
 
 function displayName(value) {
@@ -22,6 +23,7 @@ function Workouts() {
       columns={columns}
       description="Get inspired by workouts created for your fitness journey."
       endpoint="/api/workouts/"
+      fetcher={fetchApi}
       title="Workouts"
     />
   )
