@@ -76,4 +76,5 @@ app.use(
 
 app.listen(port, '0.0.0.0', () => {
   console.log(`OctoFit API listening on port ${port}`);
+  console.log(`OctoFit API base URL: ${apiBaseUrl}`);
 });
